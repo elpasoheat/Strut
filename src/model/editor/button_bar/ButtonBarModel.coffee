@@ -91,6 +91,7 @@ define(["vendor/amd/backbone"],
 				@set("font" + setting.substr(0,1).toUpperCase() + setting.substr(1),
 					@activeComponent.get(setting))
 
+<<<<<<< HEAD:src/model/editor/button_bar/ButtonBarModel.coffee
 		_bindActiveText: () ->
 			@activeComponent.on("change:size", @_activeFontSizeChanged, @)
 
@@ -102,6 +103,8 @@ define(["vendor/amd/backbone"],
 		* @method colorSelected
 		* @param {String} hex CSS hex string
 		*###
+=======
+>>>>>>> parent of 4fef207... Font size readout in menu bar is updated as font is scaled.  GH-34.:client/src/model/editor/button_bar/ButtonBarModel.coffee
 		colorSelected: (hex) ->
 			@set("fontColor", hex)
 			if @_activeIsTextbox()
@@ -113,13 +116,9 @@ define(["vendor/amd/backbone"],
 		* @param {Object} component
 		*###
 		activeComponentChanged: (component) ->
-			if (@activeComponent?)
-				@activeComponent.off(null, null, @)
-
 			@activeComponent = component
 			if @_activeIsTextbox()
 				@_pullFontSettings()
-				@_bindActiveText()
 
 		###*
 		* The following are auto-generated methods for

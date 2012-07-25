@@ -30,7 +30,7 @@ define(["./ComponentView",
 			currSize = @model.get("size")
 
 			sign = if deltas.dx - @_lastDx > 0 then 1 else -1
-			@model.set("size", currSize + Math.round(sign*Math.sqrt(Math.abs(deltas.dx - @_lastDx))))
+			@model.set("size", currSize + sign*Math.sqrt(Math.abs(deltas.dx - @_lastDx)))
 			@_lastDx = deltas.dx
 
 		dblclicked: (e) ->
@@ -45,6 +45,7 @@ define(["./ComponentView",
 			if text is ""
 				@remove()
 			else
+				console.log "ALLOWING DRAGGING"
 				@model.set("text", text)
 				@$el.find(".content").attr("contenteditable", false)
 				@$el.removeClass("editable")

@@ -107,6 +107,7 @@ define(["vendor/amd/backbone"], function(Backbone) {
       }
       return _results;
     },
+<<<<<<< HEAD:web/scripts/model/editor/button_bar/ButtonBarModel.js
     _bindActiveText: function() {
       return this.activeComponent.on("change:size", this._activeFontSizeChanged, this);
     },
@@ -120,6 +121,8 @@ define(["vendor/amd/backbone"], function(Backbone) {
     		*
     */
 
+=======
+>>>>>>> parent of 4fef207... Font size readout in menu bar is updated as font is scaled.  GH-34.:client/web/scripts/model/editor/button_bar/ButtonBarModel.js
     colorSelected: function(hex) {
       this.set("fontColor", hex);
       if (this._activeIsTextbox()) {
@@ -134,13 +137,9 @@ define(["vendor/amd/backbone"], function(Backbone) {
     */
 
     activeComponentChanged: function(component) {
-      if ((this.activeComponent != null)) {
-        this.activeComponent.off(null, null, this);
-      }
       this.activeComponent = component;
       if (this._activeIsTextbox()) {
-        this._pullFontSettings();
-        return this._bindActiveText();
+        return this._pullFontSettings();
       }
     },
     /**

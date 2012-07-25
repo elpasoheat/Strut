@@ -33,7 +33,7 @@ define(["./ComponentView", "../Templates"], function(ComponentView, Templates) {
       var currSize, sign;
       currSize = this.model.get("size");
       sign = deltas.dx - this._lastDx > 0 ? 1 : -1;
-      this.model.set("size", currSize + Math.round(sign * Math.sqrt(Math.abs(deltas.dx - this._lastDx))));
+      this.model.set("size", currSize + sign * Math.sqrt(Math.abs(deltas.dx - this._lastDx)));
       return this._lastDx = deltas.dx;
     },
     dblclicked: function(e) {
@@ -49,6 +49,7 @@ define(["./ComponentView", "../Templates"], function(ComponentView, Templates) {
       if (text === "") {
         return this.remove();
       } else {
+        console.log("ALLOWING DRAGGING");
         this.model.set("text", text);
         this.$el.find(".content").attr("contenteditable", false);
         this.$el.removeClass("editable");
